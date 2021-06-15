@@ -1,6 +1,6 @@
 {
-  "name": "@appleswap/sdk",
-  "license":"GPL-3.0-or-later",
+  "name": "@denverswap/sdk",
+  "license": "GPL-3.0-or-later",
   "version": "0.0.1",
   "description": "🛠 An SDK for building applications on top of Appleswap.",
   "main": "dist/index.js",
@@ -21,7 +21,7 @@
     "prepublishOnly": "tsdx build"
   },
   "dependencies": {
-    "@appleswap/core": "git+ssh://git@github.com/ClockChainXD/appleswap-core.git",
+    "@denverswap/core": "git+ssh://git@github.com/ClockChainXD/appleswap-core.git",
     "big.js": "^5.2.2",
     "decimal.js-light": "^2.5.0",
     "jsbi": "^3.1.1",

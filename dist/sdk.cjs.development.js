@@ -15,7 +15,7 @@ var solidity = require('@ethersproject/solidity');
 var contracts = require('@ethersproject/contracts');
 var networks = require('@ethersproject/networks');
 var providers = require('@ethersproject/providers');
-var IApplePair = _interopDefault(require('@appleswap/core/build/IApplePair.json'));
+var IDenverPair = _interopDefault(require('@denverswap/core/build/IDenverPair.json'));
 
 var _SOLIDITY_TYPE_MAXIMA;
 
@@ -35,8 +35,8 @@ var _SOLIDITY_TYPE_MAXIMA;
   Rounding[Rounding["ROUND_UP"] = 2] = "ROUND_UP";
 })(exports.Rounding || (exports.Rounding = {}));
 
-var FACTORY_ADDRESS = '0x87119687f59d28B566c9a72F1c6A2c1c7F82DECA';
-var INIT_CODE_HASH = '0x7c09387a9f3628d9539453b6317653e7074580491fb8fe83b860b4b9d2add3b8';
+var FACTORY_ADDRESS = '0x7DFF9F309493df8443e50E2fA417Ed4EFc1F41Fc';
+var INIT_CODE_HASH = '0x0eb840e0ecc9bde4d3bf21d1ab438e796ff53f7041861183e546d0444be54ebc';
 var MINIMUM_LIQUIDITY = /*#__PURE__*/JSBI.BigInt(1000); // exports for internal consumption
 
 var ZERO = /*#__PURE__*/JSBI.BigInt(0);
@@ -755,7 +755,7 @@ var Pair = /*#__PURE__*/function () {
   function Pair(tokenAmountA, tokenAmountB) {
     var tokenAmounts = tokenAmountA.token.sortsBefore(tokenAmountB.token) // does safety checks
     ? [tokenAmountA, tokenAmountB] : [tokenAmountB, tokenAmountA];
-    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'Apple-LP', 'Apple LPs');
+    this.liquidityToken = new Token(tokenAmounts[0].token.chainId, Pair.getAddress(tokenAmounts[0].token, tokenAmounts[1].token), 18, 'DNR-LP', 'Denver LPs');
     this.tokenAmounts = tokenAmounts;
   }
 
@@ -1549,7 +1549,7 @@ var Fetcher = /*#__PURE__*/function () {
       if (provider === undefined) provider = providers.getDefaultProvider(networks.getNetwork(tokenA.chainId));
       !(tokenA.chainId === tokenB.chainId) ? "development" !== "production" ? invariant(false, 'CHAIN_ID') : invariant(false) : void 0;
       var address = Pair.getAddress(tokenA, tokenB);
-      return Promise.resolve(new contracts.Contract(address, IApplePair.abi, provider).getReserves()).then(function (_ref) {
+      return Promise.resolve(new contracts.Contract(address, IDenverPair.abi, provider).getReserves()).then(function (_ref) {
         var reserves0 = _ref[0],
             reserves1 = _ref[1];
         var balances = tokenA.sortsBefore(tokenB) ? [reserves0, reserves1] : [reserves1, reserves0];

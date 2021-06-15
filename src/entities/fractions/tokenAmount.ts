@@ -1,7 +1,8 @@
-import { CurrencyAmount } from './currencyAmount'
-import { Token } from '../token'
+/* eslint-disable import/prefer-default-export */
 import invariant from 'tiny-invariant'
 import JSBI from 'jsbi'
+import { CurrencyAmount } from './currencyAmount'
+import { Token } from '../token'
 
 import { BigintIsh } from '../../constants'
 
