@@ -10,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com:ClockChainXD/appleswap-sdk.git"
+    "url": "https://github.com/ClockChainXD/appleswap-sdk.git"
   },
   "module": "dist/sdk.esm.js",
   "scripts": {
@@ -21,7 +21,7 @@
     "prepublishOnly": "tsdx build"
   },
   "dependencies": {
-    "@denverswap/core": "git+ssh://git@github.com/ClockChainXD/appleswap-core.git",
+    "@denverswap/core": "git+https://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:x-oauth-basic@github.com/ClockChainXD/appleswap-core.git",
     "big.js": "^5.2.2",
     "decimal.js-light": "^2.5.0",
     "jsbi": "^3.1.1",
